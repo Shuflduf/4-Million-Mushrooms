@@ -16,6 +16,8 @@ func request_update() -> void:
 	for p in [%SinglePrice, %StackPrice, %FMPrice]:
 		p.text = "$ Loading"
 
+	%Stock.text = "Loading"
+
 	http.request(URL, HEADERS, HTTPClient.METHOD_GET)
 
 
@@ -26,15 +28,19 @@ func _on_http_request_request_completed(_r, _r_code, _h, body: PackedByteArray) 
 	%SinglePrice.text = "$ " + split_big(price)
 	%StackPrice.text = "$ " + split_big(price * 64)
 	%FMPrice.text = "$ " + split_big(price * 4_000_000)
+	%Stock.text = split_big(mushroom["quick_status"]["buyVolume"], true)
 
-func split_big(number: float) -> String:
+func split_big(number: float, is_int = false) -> String:
 
 	var t = str(roundi(number * 10))
+	if is_int:
+		t = str(number)
 	for i in ceil(t.length() / 3.0):
 		if i == 0:
 			continue
-		t = t.insert(t.length() - i - i * 3, ",")
-	return str(t.insert(t.length() - 1, "."))
+		var index_offset = i * 3 - (1 if is_int else 0)
+		t = t.insert(t.length() - i - index_offset, ",")
+	return t.insert(t.length() - 1, ".") if !is_int else t
 
 
 

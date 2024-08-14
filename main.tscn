@@ -84,17 +84,29 @@ theme_override_fonts/font = ExtResource("3_wi3ah")
 theme_override_font_sizes/font_size = 30
 text = " Get Price "
 
-[node name="Single" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 25
+
+[node name="Single" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/Single"]
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Single"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Single:"
 label_settings = SubResource("LabelSettings_kkdlh")
 horizontal_alignment = 1
 
-[node name="SinglePrice" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/Single"]
+[node name="SinglePrice" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Single"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
@@ -102,17 +114,17 @@ text = "$ Loading"
 label_settings = SubResource("LabelSettings_fw0xu")
 horizontal_alignment = 1
 
-[node name="Stack" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="Stack" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/Stack"]
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Stack"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Stack:"
 label_settings = SubResource("LabelSettings_kkdlh")
 horizontal_alignment = 1
 
-[node name="StackPrice" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/Stack"]
+[node name="StackPrice" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Stack"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
@@ -120,21 +132,42 @@ text = "$ Loading"
 label_settings = SubResource("LabelSettings_fw0xu")
 horizontal_alignment = 1
 
-[node name="FourMillion" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="FourMillion" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/FourMillion"]
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/FourMillion"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Four Million:"
 label_settings = SubResource("LabelSettings_kkdlh")
 horizontal_alignment = 1
 
-[node name="FMPrice" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/FourMillion"]
+[node name="FMPrice" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/FourMillion"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
 text = "$ Loading"
+label_settings = SubResource("LabelSettings_fw0xu")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Stock" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Stock"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Stock:"
+label_settings = SubResource("LabelSettings_kkdlh")
+horizontal_alignment = 1
+
+[node name="Stock" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Stock"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Loading"
 label_settings = SubResource("LabelSettings_fw0xu")
 horizontal_alignment = 1
 
