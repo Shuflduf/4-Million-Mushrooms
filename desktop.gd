@@ -7,3 +7,4 @@ func _ready() -> void:
 	if get_viewport().size.x < get_viewport().size.y:
 		get_tree().root.add_child(mobile_ui.instantiate())
 		queue_free()
+		get_window().content_scale_factor = 2.0

@@ -17,6 +17,7 @@ config/icon="res://shroom.webp"
 
 [display]
 
+window/stretch/aspect="expand"
 window/handheld/orientation=1
 
 [rendering]
