@@ -126,7 +126,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/FourMillion"]
 layout_mode = 2
 size_flags_horizontal = 2
-text = "Stack:"
+text = "Four Million:"
 label_settings = SubResource("LabelSettings_kkdlh")
 horizontal_alignment = 1
 
@@ -140,4 +140,5 @@ horizontal_alignment = 1
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
