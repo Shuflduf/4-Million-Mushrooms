@@ -10,6 +10,7 @@ func _on_button_pressed() -> void:
 	request_update()
 
 func _ready() -> void:
+	OS.request_permission("INTERNET")
 	request_update()
 
 func request_update() -> void:
@@ -17,7 +18,7 @@ func request_update() -> void:
 		p.text = "$ Loading"
 
 	%Stock.text = "Loading"
-	%DebugLabel.text = OS.get_granted_permissions()
+	%DebugLabel.text = str(OS.get_granted_permissions())
 	http.request(URL, HEADERS, HTTPClient.METHOD_GET)
 
 
@@ -31,6 +32,9 @@ func _on_http_request_request_completed(_r, _r_code, _h, body: PackedByteArray) 
 	%Stock.text = split_big(mushroom["quick_status"]["buyVolume"], true)
 
 func split_big(number: float, is_int = false) -> String:
+
+	if number < 1000:
+		return str(number).pad_decimals(1)
 
 	var t = str(roundi(number * 10))
 	if is_int:
