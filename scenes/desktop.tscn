@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://0n1glr7skegi"]
 
-[ext_resource type="Script" path="res://desktop.gd" id="1_0cu5t"]
-[ext_resource type="Shader" path="res://waves.gdshader" id="2_uj3hw"]
-[ext_resource type="PackedScene" uid="uid://c1ui05y81c0rs" path="res://mobile.tscn" id="2_xa5wb"]
-[ext_resource type="PackedScene" uid="uid://c3n4gejvh51ml" path="res://main.tscn" id="3_x53sd"]
+[ext_resource type="Script" path="res://scripts/desktop.gd" id="1_0cu5t"]
+[ext_resource type="Shader" path="res://scripts/waves.gdshader" id="2_uj3hw"]
+[ext_resource type="PackedScene" uid="uid://c1ui05y81c0rs" path="res://scenes/mobile.tscn" id="2_xa5wb"]
+[ext_resource type="PackedScene" uid="uid://c3n4gejvh51ml" path="res://scenes/main.tscn" id="3_x53sd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vb01t"]
 shader = ExtResource("2_uj3hw")

@@ -1,21 +1,21 @@
 [gd_scene load_steps=8 format=3 uid="uid://c3n4gejvh51ml"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_qyh7i"]
-[ext_resource type="FontFile" uid="uid://c08fm8svuf82y" path="res://assets/fonts/MinecraftBold-nMK1.otf" id="2_kmyyp"]
-[ext_resource type="FontFile" uid="uid://cenmyqifft0km" path="res://assets/fonts/MinecraftRegular-Bmg3.otf" id="3_wi3ah"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_47yib"]
+[ext_resource type="FontFile" uid="uid://c08fm8svuf82y" path="res://assets/fonts/MinecraftBold-nMK1.otf" id="2_nq6xe"]
+[ext_resource type="FontFile" uid="uid://cenmyqifft0km" path="res://assets/fonts/MinecraftRegular-Bmg3.otf" id="3_2ueok"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kiyks"]
-font = ExtResource("2_kmyyp")
+font = ExtResource("2_nq6xe")
 font_size = 61
 font_color = Color(0.792157, 0.592157, 0.466667, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kkdlh"]
-font = ExtResource("2_kmyyp")
+font = ExtResource("2_nq6xe")
 font_size = 30
 font_color = Color(0.792157, 0.592157, 0.466667, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_fw0xu"]
-font = ExtResource("3_wi3ah")
+font = ExtResource("3_2ueok")
 font_size = 30
 font_color = Color(0.792157, 0.592157, 0.466667, 1)
 
@@ -30,7 +30,7 @@ theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
-script = ExtResource("1_qyh7i")
+script = ExtResource("1_47yib")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -49,7 +49,7 @@ uppercase = true
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
-theme_override_fonts/font = ExtResource("3_wi3ah")
+theme_override_fonts/font = ExtResource("3_2ueok")
 theme_override_font_sizes/font_size = 30
 text = " Get Info "
 
@@ -143,6 +143,7 @@ label_settings = SubResource("LabelSettings_fw0xu")
 horizontal_alignment = 1
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
+use_threads = true
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
