@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://0n1glr7skegi"]
+[gd_scene load_steps=8 format=3 uid="uid://0n1glr7skegi"]
 
 [ext_resource type="Shader" path="res://waves.gdshader" id="1_bn48a"]
+[ext_resource type="Script" path="res://main.gd" id="1_qyh7i"]
 [ext_resource type="FontFile" uid="uid://c08fm8svuf82y" path="res://assets/fonts/MinecraftBold-nMK1.otf" id="2_kmyyp"]
 [ext_resource type="FontFile" uid="uid://cenmyqifft0km" path="res://assets/fonts/MinecraftRegular-Bmg3.otf" id="3_wi3ah"]
 
@@ -35,6 +36,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qyh7i")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -84,3 +86,7 @@ label_settings = SubResource("LabelSettings_fw0xu")
 horizontal_alignment = 1
 autowrap_mode = 3
 uppercase = true
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

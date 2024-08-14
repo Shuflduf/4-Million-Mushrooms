@@ -1,11 +1,16 @@
 extends Control
 
+@onready var http: HTTPRequest = $HTTPRequest
 
-# Called when the node enters the scene tree for the first time.
+const URL = "https://api.hypixel.net/v2/skyblock/bazaar"
+
+const HEADERS = ["application: json"]
+
 func _ready() -> void:
-	pass # Replace with function body.
+	http.request(URL, HEADERS, HTTPClient.METHOD_GET)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_http_request_request_completed(_r, _r_code, _h, body: PackedByteArray) -> void:
+	FileAccess.open("data.json", FileAccess.WRITE).store_buffer(body)
+	var price = JSON.parse_string(body.get_string_from_utf8())
+	print(price["products"]["BROWN_MUSHROOM"])
