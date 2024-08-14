@@ -11,6 +11,8 @@ func _ready() -> void:
 
 
 func _on_http_request_request_completed(_r, _r_code, _h, body: PackedByteArray) -> void:
-	FileAccess.open("data.json", FileAccess.WRITE).store_buffer(body)
-	var price = JSON.parse_string(body.get_string_from_utf8())
-	print(price["products"]["BROWN_MUSHROOM"])
+
+	var mushroom = JSON.parse_string(body.get_string_from_utf8())["products"]["BROWN_MUSHROOM"]
+	FileAccess.open("data.json", FileAccess.WRITE).store_string(str(mushroom))
+	var price = mushroom["quick_status"]["buyPrice"]
+	print(price)
