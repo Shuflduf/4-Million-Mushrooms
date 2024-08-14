@@ -17,7 +17,7 @@ func request_update() -> void:
 		p.text = "$ Loading"
 
 	%Stock.text = "Loading"
-
+	%DebugLabel.text = OS.get_granted_permissions()
 	http.request(URL, HEADERS, HTTPClient.METHOD_GET)
 
 

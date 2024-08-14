@@ -2,3 +2,4 @@
 .godot/
 data.json
 /exports
+/android/build
