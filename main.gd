@@ -36,8 +36,10 @@ func split_big(number: float, is_int = false) -> String:
 	if is_int:
 		t = str(number)
 	for i in ceil(t.length() / 3.0):
+
 		if i == 0:
 			continue
+
 		var index_offset = i * 3 - (1 if is_int else 0)
 		t = t.insert(t.length() - i - index_offset, ",")
 	return t.insert(t.length() - 1, ".") if !is_int else t
