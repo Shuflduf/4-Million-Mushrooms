@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://0n1glr7skegi"]
+[gd_scene load_steps=9 format=3 uid="uid://0n1glr7skegi"]
 
 [ext_resource type="Shader" path="res://waves.gdshader" id="1_bn48a"]
 [ext_resource type="Script" path="res://main.gd" id="1_qyh7i"]
@@ -22,6 +22,11 @@ shader_parameter/zigzag_amplitude = 0.05
 [sub_resource type="LabelSettings" id="LabelSettings_kiyks"]
 font = ExtResource("2_kmyyp")
 font_size = 61
+font_color = Color(0.792157, 0.592157, 0.466667, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kkdlh"]
+font = ExtResource("2_kmyyp")
+font_size = 30
 font_color = Color(0.792157, 0.592157, 0.466667, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_fw0xu"]
@@ -79,13 +84,59 @@ theme_override_fonts/font = ExtResource("3_wi3ah")
 theme_override_font_sizes/font_size = 30
 text = " Get Price "
 
-[node name="Label2" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="Single" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "$ 40,000,000"
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/Single"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Single:"
+label_settings = SubResource("LabelSettings_kkdlh")
+horizontal_alignment = 1
+
+[node name="SinglePrice" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/Single"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "$ Loading"
 label_settings = SubResource("LabelSettings_fw0xu")
 horizontal_alignment = 1
-autowrap_mode = 3
-uppercase = true
+
+[node name="Stack" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/Stack"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Stack:"
+label_settings = SubResource("LabelSettings_kkdlh")
+horizontal_alignment = 1
+
+[node name="StackPrice" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/Stack"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "$ Loading"
+label_settings = SubResource("LabelSettings_fw0xu")
+horizontal_alignment = 1
+
+[node name="FourMillion" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/FourMillion"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Stack:"
+label_settings = SubResource("LabelSettings_kkdlh")
+horizontal_alignment = 1
+
+[node name="FMPrice" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/FourMillion"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "$ Loading"
+label_settings = SubResource("LabelSettings_fw0xu")
+horizontal_alignment = 1
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
