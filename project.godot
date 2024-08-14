@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Four Million Mushrooms"
-run/main_scene="res://main.tscn"
+run/main_scene="res://desktop.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://shroom.webp"
 

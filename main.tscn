@@ -1,23 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://0n1glr7skegi"]
+[gd_scene load_steps=8 format=3 uid="uid://c3n4gejvh51ml"]
 
-[ext_resource type="Shader" path="res://waves.gdshader" id="1_bn48a"]
 [ext_resource type="Script" path="res://main.gd" id="1_qyh7i"]
 [ext_resource type="FontFile" uid="uid://c08fm8svuf82y" path="res://assets/fonts/MinecraftBold-nMK1.otf" id="2_kmyyp"]
 [ext_resource type="FontFile" uid="uid://cenmyqifft0km" path="res://assets/fonts/MinecraftRegular-Bmg3.otf" id="3_wi3ah"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vb01t"]
-shader = ExtResource("1_bn48a")
-shader_parameter/color_gap = Color(0.792157, 0.592157, 0.466667, 1)
-shader_parameter/color_stripe = Color(0.411765, 0.301961, 0.223529, 1)
-shader_parameter/divisions = 10.0
-shader_parameter/stripe_bias = 2.0
-shader_parameter/speed = 0.03
-shader_parameter/angle = 1.571
-shader_parameter/mask_width = 0.05
-shader_parameter/shadow_width = 0.03
-shader_parameter/shadow_strength = 0.51
-shader_parameter/zigzag_frequency = 10.0
-shader_parameter/zigzag_amplitude = 0.05
 
 [sub_resource type="LabelSettings" id="LabelSettings_kiyks"]
 font = ExtResource("2_kmyyp")
@@ -39,45 +24,20 @@ bg_color = Color(0.792157, 0.592157, 0.466667, 1)
 expand_margin_top = 2.0
 expand_margin_bottom = 2.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0tif"]
-bg_color = Color(0.17, 0.124383, 0.0918, 1)
-
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_qyh7i")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="HBoxContainer"]
-material = SubResource("ShaderMaterial_vb01t")
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
-layout_mode = 2
+[node name="Main" type="MarginContainer"]
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
+script = ExtResource("1_qyh7i")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 25
 
-[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "FOUR MILLION BROWN MUSHROOMS"
 label_settings = SubResource("LabelSettings_kiyks")
@@ -85,7 +45,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 uppercase = true
 
-[node name="Button" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
@@ -93,29 +53,29 @@ theme_override_fonts/font = ExtResource("3_wi3ah")
 theme_override_font_sizes/font_size = 30
 text = " Get Info "
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 25
 
-[node name="Single" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="Single" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Single"]
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Single"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Single:"
 label_settings = SubResource("LabelSettings_kkdlh")
 horizontal_alignment = 1
 
-[node name="SinglePrice" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Single"]
+[node name="SinglePrice" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Single"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
@@ -123,17 +83,17 @@ text = "$ Loading"
 label_settings = SubResource("LabelSettings_fw0xu")
 horizontal_alignment = 1
 
-[node name="Stack" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="Stack" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Stack"]
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Stack"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Stack:"
 label_settings = SubResource("LabelSettings_kkdlh")
 horizontal_alignment = 1
 
-[node name="StackPrice" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Stack"]
+[node name="StackPrice" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Stack"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
@@ -141,17 +101,17 @@ text = "$ Loading"
 label_settings = SubResource("LabelSettings_fw0xu")
 horizontal_alignment = 1
 
-[node name="FourMillion" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="FourMillion" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/FourMillion"]
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/FourMillion"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Four Million:"
 label_settings = SubResource("LabelSettings_kkdlh")
 horizontal_alignment = 1
 
-[node name="FMPrice" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/FourMillion"]
+[node name="FMPrice" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/FourMillion"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
@@ -159,22 +119,22 @@ text = "$ Loading"
 label_settings = SubResource("LabelSettings_fw0xu")
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_styles/separator = SubResource("StyleBoxFlat_4d4mq")
 
-[node name="Stock" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="Stock" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Stock"]
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Stock"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Stock:"
 label_settings = SubResource("LabelSettings_kkdlh")
 horizontal_alignment = 1
 
-[node name="Stock" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Stock"]
+[node name="Stock" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Stock"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
@@ -182,23 +142,8 @@ text = "Loading"
 label_settings = SubResource("LabelSettings_fw0xu")
 horizontal_alignment = 1
 
-[node name="DebugLabel" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 use_threads = true
 
-[node name="Panel" type="Panel" parent="."]
-z_index = -100
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h0tif")
-
-[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

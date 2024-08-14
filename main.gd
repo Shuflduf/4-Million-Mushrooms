@@ -2,6 +2,7 @@ extends Control
 
 @onready var http: HTTPRequest = $HTTPRequest
 
+
 const URL = "https://api.hypixel.net/v2/skyblock/bazaar"
 
 const HEADERS = ["application: json"]
@@ -10,7 +11,6 @@ func _on_button_pressed() -> void:
 	request_update()
 
 func _ready() -> void:
-	OS.request_permission("INTERNET")
 	request_update()
 
 func request_update() -> void:
@@ -18,13 +18,12 @@ func request_update() -> void:
 		p.text = "$ Loading"
 
 	%Stock.text = "Loading"
-	%DebugLabel.text = str(OS.get_granted_permissions())
 	http.request(URL, HEADERS, HTTPClient.METHOD_GET)
 
 
 func _on_http_request_request_completed(_r, _r_code, _h, body: PackedByteArray) -> void:
 	var mushroom = JSON.parse_string(body.get_string_from_utf8())["products"]["BROWN_MUSHROOM"]
-	FileAccess.open("data.json", FileAccess.WRITE).store_string(str(mushroom))
+	#FileAccess.open("user://data.json", FileAccess.WRITE).store_string(str(mushroom))
 	var price = mushroom["quick_status"]["buyPrice"]
 	%SinglePrice.text = "$ " + split_big(price)
 	%StackPrice.text = "$ " + split_big(price * 64)

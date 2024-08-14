@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1ui05y81c0rs"]
+
+[ext_resource type="PackedScene" uid="uid://c3n4gejvh51ml" path="res://main.tscn" id="1_o5mcr"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Main" parent="MarginContainer2" instance=ExtResource("1_o5mcr")]
+layout_mode = 2
