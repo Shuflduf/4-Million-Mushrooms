@@ -143,7 +143,6 @@ label_settings = SubResource("LabelSettings_fw0xu")
 horizontal_alignment = 1
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
-use_threads = true
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

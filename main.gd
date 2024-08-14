@@ -11,6 +11,7 @@ func _on_button_pressed() -> void:
 	request_update()
 
 func _ready() -> void:
+	#http.get_http_client_status().
 	request_update()
 
 func request_update() -> void:
